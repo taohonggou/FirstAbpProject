@@ -9,7 +9,7 @@ namespace Acme.SimpleTaskApp.Web.Controllers
     public class TasksController : Controller
     {
         public IActionResult Index()
-        {
+        { 
             return View();
         }
     }
