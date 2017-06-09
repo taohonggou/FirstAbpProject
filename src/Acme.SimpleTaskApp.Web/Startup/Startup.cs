@@ -57,7 +57,7 @@ namespace Acme.SimpleTaskApp.Web.Startup
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Tasks}/{action=Index}/{id?}");
             });
         }
     }
