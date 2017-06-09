@@ -20,7 +20,7 @@ namespace Acme.SimpleTaskApp.Tasks
 
         public  List<TaskListDto> GetAll(GetAllTasksInput input)
         {
-            var tasks =  _taskRepository
+            var tasks = _taskRepository
                 .GetAll()
                 .WhereIf(input.State.HasValue, o => o.State == input.State.Value)
                 .OrderByDescending(o => o.CreationTime)

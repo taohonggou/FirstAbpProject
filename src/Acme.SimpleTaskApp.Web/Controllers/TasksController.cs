@@ -1,16 +1,27 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Acme.SimpleTaskApp.Tasks;
+using Acme.SimpleTaskApp.Tasks.Dto;
+using Acme.SimpleTaskApp.Web.Models.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Acme.SimpleTaskApp.Web.Controllers
 {
-    public class TasksController : Controller
+    public class TasksController : SimpleTaskAppControllerBase
     {
-        public IActionResult Index()
-        { 
-            return View();
+        private readonly ITaskAppService _taskAppService;
+
+        public TasksController(ITaskAppService taskAppService)
+        {
+            _taskAppService = taskAppService;
+        }
+
+        public IActionResult Index(GetAllTasksInput input)
+        {
+            var output = _taskAppService.GetAll(input);
+            var model = new IndexViewModel(output)
+            {
+                SelectedTaskState=input.State
+            };
+            return View(model);
         }
     }
 }
