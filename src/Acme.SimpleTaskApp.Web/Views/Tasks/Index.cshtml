@@ -5,6 +5,16 @@
 
 }
 
+@section scripts{
+    <environment names="Development">
+        <script src="~/js/views/tasks/index.js"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <script src="~/js/views/tasks/index.min.js"></script>
+    </environment>
+}
+
+
 <h2>
     @L("TaskList")
     <span class="pull-right">

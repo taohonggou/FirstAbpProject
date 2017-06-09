@@ -12,6 +12,9 @@
     <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="wwwroot\js\views\tasks\index.js" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="App.config" />
     <None Update="log4net.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

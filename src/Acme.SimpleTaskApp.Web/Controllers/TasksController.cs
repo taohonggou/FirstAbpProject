@@ -2,6 +2,7 @@ using Acme.SimpleTaskApp.Tasks;
 using Acme.SimpleTaskApp.Tasks.Dto;
 using Acme.SimpleTaskApp.Web.Models.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace Acme.SimpleTaskApp.Web.Controllers
 {
@@ -14,12 +15,12 @@ namespace Acme.SimpleTaskApp.Web.Controllers
             _taskAppService = taskAppService;
         }
 
-        public IActionResult Index(GetAllTasksInput input)
+        public async Task<IActionResult> Index(GetAllTasksInput input)
         {
-            var output = _taskAppService.GetAll(input);
+            var output = await _taskAppService.GetAll(input);
             var model = new IndexViewModel(output)
             {
-                SelectedTaskState=input.State
+                SelectedTaskState = input.State
             };
             return View(model);
         }

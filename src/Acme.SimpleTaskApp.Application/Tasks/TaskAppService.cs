@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Abp.Domain.Repositories;
+using Abp.Linq.Extensions;
 using Acme.SimpleTaskApp.Tasks.Dto;
-using Abp.Domain.Repositories;
-using Abp.Collections.Extensions;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Acme.SimpleTaskApp.Tasks
 {
@@ -18,24 +17,15 @@ namespace Acme.SimpleTaskApp.Tasks
             _taskRepository = taskRepository;
         }
 
-        public  List<TaskListDto> GetAll(GetAllTasksInput input)
+        public async Task<List<TaskListDto>> GetAll(GetAllTasksInput input)
         {
-            var tasks = _taskRepository
+            var tasks = await _taskRepository
                 .GetAll()
                 .WhereIf(input.State.HasValue, o => o.State == input.State.Value)
                 .OrderByDescending(o => o.CreationTime)
-                .ToList();
-
-            //return new ListResultOutput<TaskListDto>(
-            //    ObjectMapper.Map<List<TaskListDto>>(tasks)
-            //);
+                .ToListAsync();
 
             return new List<TaskListDto>(ObjectMapper.Map<List<TaskListDto>>(tasks));
-            //{
-            //    //ObjectMapper.Map<List<TaskListDto>>(tasks)
-            //    ObjectMapper.Map<List<TaskListDto>>(tasks)
-            //};
-
         }
     }
 }

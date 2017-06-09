@@ -9,6 +9,6 @@ namespace Acme.SimpleTaskApp.Tasks
 {
     public interface ITaskAppService : IApplicationService
     {
-        List<TaskListDto> GetAll(GetAllTasksInput input);
+        Task<List<TaskListDto>> GetAll(GetAllTasksInput input);
     }
 }
