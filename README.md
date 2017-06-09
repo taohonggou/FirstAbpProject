@@ -1,16 +1,4 @@
-# ASP.NET Core & EntityFramework Core Based Startup Template
+# 开发过程遇到的问题
 
-This template is a simple startup project to start with ABP
-using ASP.NET Core and EntityFramework Core.
-
-## Prerequirements
-
-* Visual Studio 2017
-* .NET Core SDK
-* SQL Server
-
-## How To Run
-
-* Open solution in Visual Studio 2015
-* Set .Web project as Startup Project and build the project.
-* Run the application.
+- 在从abp官网下载好项目后，开始看着官方文档开始开发，在执行`dotnet ef database update`时总是提示`No executable found matching command "dotnet-ef"`，在[学习ASP.NET Core MVC](https://docs.microsoft.com/zh-cn/aspnet/core/tutorials/first-mvc-app/start-mvc)时，记着他是在*.csproj文件的`ItemGroup`标签中添加了`<DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="1.0.1" />`，我在添加上以后再执行`dotnet ef database update`果然成功了。
+- 我下载的是没有包含`zero`的`Multi Page Web Application`的模板，下载好后我在`Web`项目添加控制器报错，从网上找方法，在`*.Web.csproj`文件的`ItemGroup`标签中添加以下内容就OK了`<DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.0" />`。
