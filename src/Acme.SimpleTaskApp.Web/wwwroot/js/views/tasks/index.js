@@ -5,4 +5,4 @@
             location.href = '/Tasks?state=' + _$taskStateCombobox.val();
         });
     });
-})(jQuery)
+})(jQuery);

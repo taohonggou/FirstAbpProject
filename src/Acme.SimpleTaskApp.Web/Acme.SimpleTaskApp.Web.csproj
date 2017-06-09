@@ -12,6 +12,9 @@
     <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="wwwroot\js\jquery-extensions.js" />
+    <Content Include="wwwroot\js\jquery-extensions.min.js" />
+    <Content Include="wwwroot\js\views\tasks\create.js" />
     <Content Include="wwwroot\js\views\tasks\index.js" />
   </ItemGroup>
   <ItemGroup>
