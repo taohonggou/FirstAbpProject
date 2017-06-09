@@ -42,10 +42,21 @@
                     <h4 class="list-group-item-heading">@task.Title</h4>
                     <div class="list-group-item-text">
                         @task.CreationTime.ToString("yyyy-MM-dd HH:mm:ss")|@(task.AssignedPersonName??L("Unassigned"))
+                        <button class="pull-right btn btn-primary btn-sm">Edit</button>
+                        <span class="pull-right">&nbsp;</span>
+                        <button class="pull-right btn btn-danger btn-sm">Delete</button>
                     </div>
                 </li>
             }
         </ul>
     </div>
+    @*<table class="table table-bordered ">
+        <thead>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+        </thead>
+    </table>*@
 </div>
 
