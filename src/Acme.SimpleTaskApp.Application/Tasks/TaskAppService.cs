@@ -26,13 +26,20 @@ namespace Acme.SimpleTaskApp.Tasks
         }
 
         
-        public async  System.Threading.Tasks.Task Delete(DeleteTaskInput input)
+        public async  Task<bool> Delete(DeleteTaskInput input)
         {
             var task=await _taskRepository.FirstOrDefaultAsync(input.Id);
             if(task==null)
                 throw new UserFriendlyException("异常", "任务id不存在");
 
             await _taskRepository.DeleteAsync(task);
+            return true;
+        }
+
+        public async  Task<TaskDto> Get(int id)
+        {
+            var task=await  _taskRepository.FirstOrDefaultAsync(id);
+            return ObjectMapper.Map<TaskDto>(task);
         }
 
         public async Task<List<TaskListDto>> GetAll(GetAllTasksInput input)

@@ -16,7 +16,8 @@
                             abp.message.error('错误', '参数错误');
                         }
                         abp.services.app.task.delete({ id: obj.attr('data-id')})
-                            .done(function () {
+                            .done(function (response) {
+                                console.log(response);
                                 location.reload();
                             });
                     }

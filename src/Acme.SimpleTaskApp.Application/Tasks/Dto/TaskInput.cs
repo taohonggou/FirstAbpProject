@@ -29,4 +29,9 @@ namespace Acme.SimpleTaskApp.Tasks.Dto
         public int Id { get; set; }
     }
 
+
+    public class EditTaskInput
+    {
+        public int? Id { get; set; }
+    }
 }
