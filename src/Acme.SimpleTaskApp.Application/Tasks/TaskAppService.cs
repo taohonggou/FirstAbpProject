@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System;
+using Abp.UI;
 
 namespace Acme.SimpleTaskApp.Tasks
 {
@@ -22,6 +23,16 @@ namespace Acme.SimpleTaskApp.Tasks
         {
             var task = ObjectMapper.Map<Task>(input);
             await  _taskRepository.InsertAsync(task);
+        }
+
+        
+        public async  System.Threading.Tasks.Task Delete(DeleteTaskInput input)
+        {
+            var task=await _taskRepository.FirstOrDefaultAsync(input.Id);
+            if(task==null)
+                throw new UserFriendlyException("异常", "任务id不存在");
+
+            await _taskRepository.DeleteAsync(task);
         }
 
         public async Task<List<TaskListDto>> GetAll(GetAllTasksInput input)

@@ -23,4 +23,10 @@ namespace Acme.SimpleTaskApp.Tasks.Dto
         public Guid? AssignedPersonId { get; set; }
     }
 
+    public class DeleteTaskInput
+    {
+        [Range(1,int.MaxValue)]
+        public int Id { get; set; }
+    }
+
 }

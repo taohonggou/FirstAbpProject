@@ -12,5 +12,7 @@ namespace Acme.SimpleTaskApp.Tasks
         Task<List<TaskListDto>> GetAll(GetAllTasksInput input);
 
         System.Threading.Tasks.Task Create(CreateTaskInput input);
+        
+        System.Threading.Tasks.Task Delete(DeleteTaskInput  input);
     }
 }
