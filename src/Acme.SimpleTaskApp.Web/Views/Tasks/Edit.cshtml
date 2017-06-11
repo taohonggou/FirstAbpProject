@@ -30,12 +30,16 @@
            })
     </div>
     <div class="form-group">
-        @*@Html.Label("TaskState")
-            @Html.DropDownList({
-                o => Model.Task.State,
-
-
-            })*@
+        @Html.Label("TaskState")
+            @Html.DropDownList(
+           "taskState",
+                //o => Model.Task.State,
+                Model.State,
+                new
+                {
+                    @class="form-control",
+                    id="taskState"
+                })
     </div>
     <button type="submit" class="btn btn-default">@L("Save")</button>
 </form>

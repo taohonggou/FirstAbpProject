@@ -16,5 +16,7 @@ namespace Acme.SimpleTaskApp.Tasks
         Task<bool> Delete(DeleteTaskInput  input);
 
         Task<TaskDto> Get(int id);
+
+        System.Threading.Tasks.Task Edit();
     }
 }

@@ -23,6 +23,20 @@ namespace Acme.SimpleTaskApp.Tasks.Dto
         public Guid? AssignedPersonId { get; set; }
     }
 
+    [AutoMapTo(typeof(Task))]
+    public class EditInput
+    {
+        [Required]
+        [MaxLength(Task.MaxTitleLength)]
+        public string Title { get; set; }
+        [MaxLength(Task.MaxDescriptionLength)]
+        public string Description { get; set; }
+
+        public TaskState State { get; set; }
+
+        public Guid? AssignedPersonId { get; set; }
+    }
+
     public class DeleteTaskInput
     {
         [Range(1,int.MaxValue)]
